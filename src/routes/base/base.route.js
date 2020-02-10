@@ -21,6 +21,7 @@ class BaseRoute {
     this.path = this.childConfig.path;
     this.routes = this.childConfig.routes;
     this.strings = this.childConfig.strings;
+    this.controller.msgStrings = this.strings;
   }
 
   /**
@@ -49,7 +50,7 @@ class BaseRoute {
    * @description
    * Returns an object Config used by Hapi
    */
-  static getConfig(tags, description, notes, options) {
+  static getConfig(tags, description, notes, options = undefined) {
     const failAction = (request, headers, error) => {
       throw error;
     };

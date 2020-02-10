@@ -1,0 +1,23 @@
+{
+  "name": "auth",
+  "path": [
+    "/login",
+    "/signup"
+  ],
+  "routes": {
+    "login": {
+      "description": "Get Token",
+      "notes": "Realiza o login com o user e a senha informados"
+    },
+    "signup": {
+      "description": "Register",
+      "notes": "Realiza o cadastro com o user e a senha informados"
+    }
+  },
+  "strings": [
+    "Deve-se ser informado usuário e/ou senha",
+    "O Usuário Informado não existe!",
+    "O Usuário Informado já existe!",
+    "O Usuário ou senha inválido!"
+  ]
+}

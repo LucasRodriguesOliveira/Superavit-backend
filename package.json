@@ -1,7 +1,7 @@
 {
-  "name": "boilerplate-hapirouter",
+  "name": "Superavit-backend",
   "version": "1.0.0",
-  "description": "A Easy to use boilerplate for Nodejs Hapi projects",
+  "description": "Sistema de gerenciamento de finanças pessoais",
   "main": "api.js",
   "scripts": {
     "doc": "jsdoc -c jsdoc.config.json -R ./README.md",
@@ -9,19 +9,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LucasRodriguesOliveira/Boilerplate-HapiRouter.git"
+    "url": "git+https://github.com/LucasRodriguesOliveira/Superavit-backend.git"
   },
   "keywords": [
-    "Boilerplate",
-    "Hapi",
-    "Router"
+    "Superavit",
+    "Finanaças"
   ],
   "author": "Lucas Rodrigues de Oliveira",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/LucasRodriguesOliveira/Boilerplate-HapiRouter/issues"
+    "url": "https://github.com/LucasRodriguesOliveira/Superavit-backend/issues"
   },
-  "homepage": "https://github.com/LucasRodriguesOliveira/Boilerplate-HapiRouter#readme",
+  "homepage": "https://github.com/LucasRodriguesOliveira/Superavit-backend#readme",
   "devDependencies": {
     "@hapi/inert": "^5.2.1",
     "@hapi/vision": "^5.5.3",
@@ -36,10 +35,12 @@
     "@hapi/hapi": "^18.3.2",
     "@hapi/joi": "^14.3.1",
     "bcrypt": "^3.0.6",
+    "dotenv": "^8.2.0",
     "hapi-auth-jwt2": "^8.6.2",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.7.7",
     "require-dir": "^1.2.0",
-    "dotenv": "^8.2.0"
+    "sequelize": "^5.21.4",
+    "pg": "^7.12.0",
+    "pg-hstore": "^2.3.3"
   }
 }

@@ -20,14 +20,14 @@ class Router {
     return ms.map(m => i[m](m));
   }
 
-  static getRoutes(dirs, secret, database) {
+  static getRoutes(dirs, database) {
     const routes = [];
     // returns an array of each route in specif pattern
     // defined by "pattern" in config.json
     // then, instantiates the route and run all methods inside to grab the
     // all the routes information
     obj2arr(dirs).forEach(r => {
-      Router.mapRoutes((new r(secret, database)), r.methods())
+      Router.mapRoutes((new r(database)), r.methods())
         .forEach(m => {
           routes.push(m);
         });

@@ -5,18 +5,19 @@ configEnv(process.env.NODE_ENV);
 // * System imports
 const Hapi = require('@hapi/hapi');
 const Router = require('./routes/router');
-// Actually, you can define any database you want
-// I'm specting that you use Strategy pattern
-const Mongodb = require('./database/mongodb/Mongodb.database');
+const PostgreSQL = require('./database/postgres/postgres.database');
 const Context = require('./database/base/Context');
 const { configRegister, configAuthStrategy } = require('./helper/config');
 
-// * Setting up database connection
-// True -> Show Log ('Database Mongodb running')
+// True -> Show Log ('Database Postgres running')
 // False -> Do not show log, just run
+const SHOW_LOG = !!process.env.SHOW_LOG;
+
+// * Setting up database connection
+
 let database;
 try {
-  database = new Context(new Mongodb(Mongodb.connect(true)));
+  database = new Context(new PostgreSQL(PostgreSQL._connect(SHOW_LOG)));
 } catch(err) {
   database = {}; // please, set up your database connection in .env.development
 }
@@ -40,7 +41,7 @@ async function main() {
   //app.auth.default('jwt'); // uncomment this line to use auth
 
   //* Routes registration
-  app.route(Router.getRoutes(Router.getDirectories(), process.env.SECRET, database));
+  app.route(Router.getRoutes(Router.getDirectories(), database));
 
   // Initiates the server
   try {

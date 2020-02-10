@@ -2,9 +2,8 @@ const BaseRoute = require('./base/base.route');
 const Controller = require('../controller/testConnection.controller');
 
 class Test extends BaseRoute {
-  constructor(secret) {
+  constructor() {
     super(require('./base/testConnection.config.json'), new Controller());
-    this.secret = secret;
   }
 
   testConnection(name) {
