@@ -27,6 +27,11 @@ class AuthController extends IController {
    * @description Runs Before each function to define the model wich will be used
    */
   before() {
+    if(this.database.isConnected()) {
+      console.log('connected');
+    } else {
+      console.log('disconnected');
+    }
     this.database.defineModel(User.getSchema(this.database.name));
   }
 

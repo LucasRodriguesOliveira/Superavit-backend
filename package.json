@@ -1,5 +1,5 @@
 {
-  "name": "Superavit-backend",
+  "name": "superavit-backend",
   "version": "1.0.0",
   "description": "Sistema de gerenciamento de finanças pessoais",
   "main": "api.js",

@@ -12,6 +12,7 @@ const { postgres, global } = require('../base/config.json');
 class Postgres extends IDatabase {
   constructor(connection) {
     super(postgres.name, connection);
+    this._schema = {};
   }
 
   static async _connect(showLog) {
@@ -43,10 +44,11 @@ class Postgres extends IDatabase {
   }
 
   async defineModel(schema) {
-    console.log(this.connection);
-    this._schema = this.connection.define(
+    const Schema = this.connection.define(
       schema.name, schema.schema, schema.options
     );
+
+    this._schema = Schema;
 
     await this._schema.sync();
   }
@@ -57,6 +59,7 @@ class Postgres extends IDatabase {
   }
 
   async read(query = {}) {
+    console.log(this._schema);
     return await this._schema.findAll({where: query, raw: true});
   }
 
