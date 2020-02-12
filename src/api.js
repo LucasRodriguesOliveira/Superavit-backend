@@ -5,7 +5,8 @@ configEnv(process.env.NODE_ENV);
 // * System imports
 const Hapi = require('@hapi/hapi');
 const Router = require('./routes/router');
-const PostgreSQL = require('./database/postgres/postgres.database');
+//const Database = require('./database/postgres/postgres.database');
+const Database = require('./database/jsonserver/jsonserver');
 const Context = require('./database/base/Context');
 const { configRegister, configAuthStrategy } = require('./helper/config');
 
@@ -17,7 +18,7 @@ const SHOW_LOG = !!process.env.SHOW_LOG;
 
 let database;
 try {
-  database = new Context(new PostgreSQL(PostgreSQL._connect(SHOW_LOG)));
+  database = new Context(new Database(Database._connect(SHOW_LOG)));
 } catch(err) {
   database = {}; // please, set up your database connection in .env.development
 }

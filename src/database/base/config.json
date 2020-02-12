@@ -8,11 +8,20 @@
       "Connecting",
       "Disconnecting"
     ],
-    "logMessage": "Database Mongodb running"
+    "logMessage": "Database Mongodb running",
+    "time_waiting": 1000,
+    "connected_status": "Connected",
+    "conecting_status": "Connecting",
+    "watch_event": "open"
   },
   "postgres": {
     "name": "postgres",
     "logMessage": "Database Postgres running"
+  },
+  "jsonserver": {
+    "name": "jsonserver",
+    "logMessage": "Database Json-Server running",
+    "url": "http://localhost:4000"
   },
   "global": {
     "ErrConnectionLog": "Connection Error!"
