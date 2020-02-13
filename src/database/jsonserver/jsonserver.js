@@ -10,12 +10,24 @@ class JsonServer extends IDatabase {
 
   async isConnected() {
     return (await axios.get(this.connection)).ok;
-    //return (await fetch(this.connection)).ok;
   }
 
-  static _connect(showLog) {
-    showLog && jsonserver.logMessage;
+  static connect(showLog) {
+    console.log(showLog && jsonserver.logMessage);
     return jsonserver.url;
+  }
+
+  defineModel(schema) {
+    this._schema = schema;
+  }
+
+  async read(query) {
+    const _query = query ? `?${query}` : '';
+    return (await axios.get(`${this.connection}${this._schema.url}${_query}`)).data;
+  }
+
+  async create(data) {
+    return (await axios.post(`${this.connection}${this._schema.url}`, data)).data;
   }
 }
 

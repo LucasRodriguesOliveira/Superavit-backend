@@ -19,7 +19,7 @@ class MongoDB extends IDatabase {
     return this._status[this.connection.readyState];
   }
 
-  static _connect(showLog) {
+  static connect(showLog) {
     const { CONNECTION_STRING } = process.env;
     const options = {
       useNewUrlParser: true,

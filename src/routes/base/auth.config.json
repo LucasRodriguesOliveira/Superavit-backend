@@ -2,7 +2,7 @@
   "name": "auth",
   "path": [
     "/login",
-    "/signup"
+    "/register"
   ],
   "routes": {
     "login": {
@@ -18,6 +18,8 @@
     "Deve-se ser informado usuário e/ou senha",
     "O Usuário Informado não existe!",
     "O Usuário Informado já existe!",
-    "O Usuário ou senha inválido!"
+    "O Usuário ou senha inválido!",
+    "Houve um problema inesperado ao carregar os dados",
+    "Houve um problema inesperado ao gravar os dados"
   ]
 }

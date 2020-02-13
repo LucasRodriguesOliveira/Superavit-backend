@@ -23,16 +23,45 @@ class Auth extends BaseRoute {
 
     const { login } = routes;
 
-    const config = BaseRoute.getConfig(tags, login.description || description, login.notes || notes);
-
-    return BaseRoute.getTemplate(
-      path[0], _method.POST, config,
-      async request => await controller.login(request.payload),{
+    const config = BaseRoute.getConfig(tags, login.description || description,
+      login.notes || notes, {
         payload: {
-          username: Joi.string().required().min(3),
+          email: Joi.string().required().min(3),
           password: Joi.string().required().min(5)
         }
       });
+
+    return BaseRoute.getTemplate(
+      path[0], _method.POST, config,
+      async request => await controller.login(request.payload)
+    );
+  }
+
+  register() {
+    const {
+      controller,
+      _default: {
+        description,
+        notes,
+        tags
+      },
+      routes,
+      _method,
+      path
+    } = this;
+    const { signup } = routes;
+    const config = BaseRoute.getConfig(tags, signup.description || description,
+      signup.notes || notes, {
+        payload: {
+          name: Joi.string().required().min(3).max(80),
+          email: Joi.string().required().min(6).max(100),
+          password: Joi.string().required().min(8).max(50)
+        }
+      });
+    return BaseRoute.getTemplate(
+      path[1], _method.POST, config,
+      async request => await controller.register(request.payload)
+    );
   }
 }
 

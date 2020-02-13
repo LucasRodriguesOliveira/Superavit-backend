@@ -15,7 +15,7 @@ class Postgres extends IDatabase {
     this._schema = {};
   }
 
-  static async _connect(showLog) {
+  static async connect(showLog) {
     const _connection = new Sequelize(
       process.env.DATABASE,
       process.env.USERNAME,

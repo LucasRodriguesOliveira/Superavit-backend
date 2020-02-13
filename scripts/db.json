@@ -4,7 +4,13 @@
       "id": 1,
       "name": "Lucas Oliveira",
       "email": "lucas@email.com",
-      "password": "admin"
+      "password": "$2b$04$dI3lA9YgW9FiSdQ3tNKQoeNqwBV4SAwqjdVpOvERRiB6l200j1plO"
+    },
+    {
+      "name": "Lucas Rodrigues",
+      "email": "lucas.rodrigues@email.com",
+      "password": "$2b$04$iJRtRpQN7yznWZ1ex5dK9elhPPDOF9tZfTIxvzvZDvUZVsbnKQdwe",
+      "id": 2
     }
   ]
 }

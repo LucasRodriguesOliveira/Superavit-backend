@@ -18,7 +18,7 @@ const SHOW_LOG = !!process.env.SHOW_LOG;
 
 let database;
 try {
-  database = new Context(new Database(Database._connect(SHOW_LOG)));
+  database = new Context(new Database(Database.connect(SHOW_LOG)));
 } catch(err) {
   database = {}; // please, set up your database connection in .env.development
 }
