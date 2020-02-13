@@ -13,12 +13,16 @@ const { configRegister, configAuthStrategy } = require('./helper/config');
 // True -> Show Log ('Database Postgres running')
 // False -> Do not show log, just run
 const SHOW_LOG = !!process.env.SHOW_LOG;
+const dbConfig = {
+  log: SHOW_LOG,
+  auto: true
+};
 
 // * Setting up database connection
 
 let database;
 try {
-  database = new Context(new Database(Database.connect(SHOW_LOG)));
+  database = new Context(new Database(Database.connect(dbConfig)));
 } catch(err) {
   database = {}; // please, set up your database connection in .env.development
 }

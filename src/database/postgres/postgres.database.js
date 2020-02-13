@@ -15,7 +15,7 @@ class Postgres extends IDatabase {
     this._schema = {};
   }
 
-  static async connect(showLog) {
+  static async connect(config = { log: false }) {
     const _connection = new Sequelize(
       process.env.DATABASE,
       process.env.USERNAME,
@@ -29,7 +29,7 @@ class Postgres extends IDatabase {
       }
     );
 
-    showLog && console.log(postgres.logMessage);
+    config.log && console.log(postgres.logMessage);
     return _connection;
   }
 

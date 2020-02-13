@@ -19,7 +19,7 @@ class MongoDB extends IDatabase {
     return this._status[this.connection.readyState];
   }
 
-  static connect(showLog) {
+  static connect(config = { log: false }) {
     const { CONNECTION_STRING } = process.env;
     const options = {
       useNewUrlParser: true,
@@ -33,7 +33,7 @@ class MongoDB extends IDatabase {
     });
 
     Mongoose.connection.once(mongodb.watch_event, () => {
-      showLog && console.log(mongodb.logMessage);
+      config.log && console.log(mongodb.logMessage);
     });
 
     return Mongoose.connection;
